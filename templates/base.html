@@ -1,0 +1,22 @@
+
+<html>
+    <head>
+        <title>Home</title>
+    </head>
+    <body>
+        <header>
+            <h1>CloneBook</h1>
+            {% if user.is_authenticated %}
+                <p>Hello {{ user.username }}</p>
+                <a href="{% url 'logout' %}">Log out</a>    
+            {% else %}
+                <a href="{% url 'login' %}">Log In</a>
+                <a href="{% url 'sign up' %}">Sign Up</a>
+            {% endif %}
+    </header>
+    <div>
+        {% block content %}
+        {% endblock content %}
+    </div>
+    </body>
+</html>
