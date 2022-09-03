@@ -1,7 +1,18 @@
 from django.contrib.auth import get_user_model
-from django.test import TestCase
+from django.test import TestCase, SimpleTestCase
 from django.urls import reverse
 
+class HomePageTests(SimpleTestCase):
+    def test_url_exists_at_correct_location(self):
+        response = self.client.get("/")
+        self.assertEquals(response.status_code, 200)
+
+    def test_homepage_view(self):
+        response = self.client.get(reverse("home"))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "home.html")
+        self.assertContains(response, "Home")
+        
 class SignupPageTests(TestCase):
     def test_url_exists_at_correct_location(self):
         response = self.client.get("/accounts/signup/")
