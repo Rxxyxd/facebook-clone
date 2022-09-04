@@ -1,6 +1,31 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %} Home {% endblock title %}
 
 {% block content %}
-<h1>Lorem Lipsum</h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tristique arcu laoreet, sodales nisl vitae, vulputate nunc. Etiam ipsum massa, gravida at facilisis ac, dapibus eu eros. Proin vitae nibh lacinia, pellentesque risus eget, imperdiet dui. Etiam condimentum magna enim, eget sodales nisi suscipit eget. Proin scelerisque sagittis ante id molestie. Fusce pellentesque pellentesque dui ac commodo. Praesent vitae metus a sem rhoncus dapibus. Suspendisse non tortor sit amet augue facilisis rutrum at in elit. Sed at lacus et odio consequat dapibus. Sed volutpat enim a congue tincidunt. Vestibulum fringilla sapien sit amet dignissim vulputate. Nunc ultricies ornare lacus sodales vestibulum.</p>
+
+<div class="col-sm-5 mx-auto">
+    <div class = "card text-center">
+        <div class="card-body">
+            <a href="{% url 'post_create' %}" class="btn btn-success">New Post</a>
+        </div>
+    </div>
+</div>
+<br><br>
+{% for post in post_list %}
+    <div class="col-sm-5 mx-auto border-bottom">
+        <div class = "card text-center">
+            <div class="card-header">
+                <span class="font-weight-bold"><a href="#" class="btn">{{ post.author | capfirst}}</a></span> &middot;
+                <span class="text-muted"><a href="{% url 'post_detail' post.pk %}" class="btn">{{ post.date }}</a></span>
+                <a href="{% url 'post_edit' post.pk %}" class="btn">Edit</a> | <a href="{% url 'post_delete' post.pk %}" class="btn">Delete</a>
+            </div>
+            <div class="card-body">
+                {{post.body}}
+            </div>
+        </div>
+    </div>
+    <br>
+{% endfor %}
 {% endblock content %}

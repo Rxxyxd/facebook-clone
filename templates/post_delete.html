@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="col-sm-5 mx-auto">
+    <div class="card text-center">
+        <div class="card-header">
+            <strong>Delete Post</strong>
+        </div>
+        <div class="card-body">
+            <form method="post">{% csrf_token %}
+                {{ form|crispy }}
+                <h4 style="color: red;"><strong>WARNING!</strong></h4><p> This can not be undone.</p>
+                <button class="btn btn-danger ml-2"type="submit">Delete</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
