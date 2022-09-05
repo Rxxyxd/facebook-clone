@@ -7,14 +7,14 @@ State: Unfinished
 
 ## ToDo
 
-Create user management system [X]  
-Create basic homepage, login, sign up [X]  
-Stylize with Bootstrap and crispy [X]  
-CRUD for posting [X]  
-Create profile page [ ]  
-Add Friends [ ]  
-Post Privacy [ ]  
-Explore Page [ ]
+- [x] Create user management system
+- [x] Create basic homepage, login, sign up
+- [x] Stylize with Bootstrap and crispy
+- [x] CRUD for posting
+- [ ] Create profile page
+- [ ] Add Friends
+- [ ] Post Privacy
+- [ ] Explore Page
 
 ## Package Requirements // requirements.txt
 
